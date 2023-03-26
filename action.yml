@@ -3,11 +3,20 @@ description: 'Install the Conan Python package and retrieve and install profiles
 runs:
   using: "composite"
   steps:
-      - name: Install latest Conan
-        id: conan
-        uses: turtlebrowser/get-conan@main
-      - name: Conan version
-        run: echo "${{ steps.conan.outputs.version }}"
+      #- name: Install latest Conan
+      #  id: conan
+      #  uses: turtlebrowser/get-conan@main
+      #- name: Conan version
+      #  run: echo "${{ steps.conan.outputs.version }}"
+      #  shell: bash
+      - name: Retrieve custom Conan
+        uses: actions/checkout@v3
+        with:
+          repository: TimZoet/conan
+          ref: feature/graph_builder_callback
+          path: conan
+      - name: Install custom Conan
+        run: pip install ${{ github.workspace }}/conan
         shell: bash
       - name: Conan config install
         run: conan config install --type git https://github.com/TimZoet/conan-config.git
