@@ -6,7 +6,6 @@ runs:
       - name: Install latest Conan
         id: conan
         uses: turtlebrowser/get-conan@main
-        shell: bash
       - name: Conan version
         run: echo "${{ steps.conan.outputs.version }}"
         shell: bash
