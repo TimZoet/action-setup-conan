@@ -14,7 +14,7 @@ runs:
         with:
           repository: TimZoet/conan
           ref: feature/graph_builder_callback
-          path: conan
+          path: ${{ github.workspace }}/conan
       - name: Install custom Conan
         run: |
           cd ${{ github.workspace }}/conan
