@@ -16,7 +16,9 @@ runs:
           ref: feature/graph_builder_callback
           path: conan
       - name: Install custom Conan
-        run: pip install ${{ github.workspace }}/conan
+        run: |
+          cd ${{ github.workspace }}/conan
+          pip install .
         shell: bash
       - name: Conan config install
         run: conan config install --type git https://github.com/TimZoet/conan-config.git
