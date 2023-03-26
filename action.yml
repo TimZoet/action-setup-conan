@@ -1,0 +1,15 @@
+name: 'Setup Conan'
+description: 'Install the Conan Python package and retrieve and install profiles repository.'
+runs:
+  using: "composite"
+  steps:
+      - name: Install latest Conan
+        id: conan
+        uses: turtlebrowser/get-conan@main
+        shell: bash
+      - name: Conan version
+        run: echo "${{ steps.conan.outputs.version }}"
+        shell: bash
+      - name: Conan config install
+        run: conan config install --type git https://github.com/TimZoet/conan-config.git
+        shell: bash
