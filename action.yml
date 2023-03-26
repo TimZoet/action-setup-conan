@@ -17,7 +17,7 @@ runs:
           path: ${{ github.workspace }}/conan
       - name: Install custom Conan
         run: |
-          cd ${{ github.workspace }}/conan
+          cd "${{ github.workspace }}/conan"
           pip install .
         shell: bash
       - name: Conan config install
