@@ -1,5 +1,5 @@
 name: 'Setup Conan'
-description: 'Install the Conan Python package and retrieve and install profiles repository.'
+description: 'Install the Conan Python package and retrieve and install TimZoet/conan-config repository to local Conan cache.'
 runs:
   using: "composite"
   steps:
